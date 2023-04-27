@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/tweetomania/static/js/main.c1b5d9bc.js",
+    "index.html": "/tweetomania/index.html",
+    "main.c1b5d9bc.js.map": "/tweetomania/static/js/main.c1b5d9bc.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.c1b5d9bc.js"
+  ]
+}
