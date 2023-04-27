@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunktweetomania=self.webpackChunktweetomania||[]).push([[859],{859:function(e,n,t){t.r(n),t.d(n,{default:function(){return r}});var i=t(87),c=t(184),r=function(){return(0,c.jsx)("section",{children:(0,c.jsxs)("div",{children:[(0,c.jsx)("h1",{children:"Home"}),(0,c.jsx)(i.rU,{to:"/tweets",children:"Click"})]})})}}}]);
+//# sourceMappingURL=859.6895f6a9.chunk.js.map

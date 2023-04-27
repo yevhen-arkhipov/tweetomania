@@ -1,10 +1,17 @@
 {
   "files": {
-    "main.js": "/tweetomania/static/js/main.c1b5d9bc.js",
+    "main.css": "/tweetomania/static/css/main.17654e45.css",
+    "main.js": "/tweetomania/static/js/main.6539a174.js",
+    "static/js/859.6895f6a9.chunk.js": "/tweetomania/static/js/859.6895f6a9.chunk.js",
+    "static/js/388.588801b8.chunk.js": "/tweetomania/static/js/388.588801b8.chunk.js",
     "index.html": "/tweetomania/index.html",
-    "main.c1b5d9bc.js.map": "/tweetomania/static/js/main.c1b5d9bc.js.map"
+    "main.17654e45.css.map": "/tweetomania/static/css/main.17654e45.css.map",
+    "main.6539a174.js.map": "/tweetomania/static/js/main.6539a174.js.map",
+    "859.6895f6a9.chunk.js.map": "/tweetomania/static/js/859.6895f6a9.chunk.js.map",
+    "388.588801b8.chunk.js.map": "/tweetomania/static/js/388.588801b8.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.c1b5d9bc.js"
+    "static/css/main.17654e45.css",
+    "static/js/main.6539a174.js"
   ]
 }
