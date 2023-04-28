@@ -1,5 +1,7 @@
+import { StylesTweetsList } from "./TweetsList.styles";
+
 const TweetsList = ({ children }) => {
-  return <ul>{children}</ul>;
+  return <StylesTweetsList>{children}</StylesTweetsList>;
 };
 
 export default TweetsList;
