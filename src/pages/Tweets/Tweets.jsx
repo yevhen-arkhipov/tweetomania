@@ -24,7 +24,6 @@ const Tweets = () => {
     renderTweets();
   }, []);
 
-  // console.log(tweetsCount);
   return (
     <section>
       <Container>
