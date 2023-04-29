@@ -14,6 +14,7 @@ const App = () => {
         <Route path="/tweets" element={<Tweets />} />
         <Route path="*" element={<Home />} />
       </Route>
+      <Route path="*" element={<Home />} />
     </Routes>
   );
 };
