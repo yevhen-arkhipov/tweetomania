@@ -10,7 +10,7 @@ const root = createRoot(rootElement);
 
 root.render(
   <StrictMode>
-    <BrowserRouter basename="/tweetomania">
+    <BrowserRouter>
       <App />
       <GlobalStyles />
     </BrowserRouter>
