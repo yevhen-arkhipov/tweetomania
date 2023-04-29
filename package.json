@@ -2,7 +2,7 @@
   "name": "tweetomania",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://yevhen-arkhipov.github.io/tweetomania/",
+  "homepage": "https://yevhen-arkhipov.github.io/tweetomania",
   "dependencies": {
     "axios": "^1.4.0",
     "modern-normalize": "^1.1.0",
