@@ -1,24 +1,41 @@
+import { useState } from "react";
+
 import {
   StylesTweetsItem,
-  CardWrapper,
   ImageWrapper,
   Image,
   DescriptionWrapper,
+  NameTextWrapper,
 } from "./TweetsItem.styled";
 
 const TweetsItem = ({ name, tweets, followers, avatar }) => {
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
+
   return (
-    <StylesTweetsItem>
-      <CardWrapper>
-        <ImageWrapper>
-          <Image src={avatar} alt={name} />
-        </ImageWrapper>
-        <DescriptionWrapper>
-          <h2>{name}</h2>
-          <p>{tweets} TWEETS</p>
-          <p>{followers} FOLLOWERS</p>
-        </DescriptionWrapper>
-      </CardWrapper>
+    <StylesTweetsItem
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {isHovering && (
+        <NameTextWrapper>
+          <p>{name}</p>
+        </NameTextWrapper>
+      )}
+      <ImageWrapper>
+        <Image src={avatar} alt={name} />
+      </ImageWrapper>
+      <DescriptionWrapper>
+        <p>{tweets} TWEETS</p>
+        <p>{followers} FOLLOWERS</p>
+      </DescriptionWrapper>
     </StylesTweetsItem>
   );
 };

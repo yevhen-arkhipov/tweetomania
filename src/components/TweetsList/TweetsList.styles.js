@@ -5,5 +5,4 @@ export const StylesTweetsList = styled.ul`
     flex-direction: column;
     justify - content: center;
     align-items: center;
-    margin-top: 50px;
 `;

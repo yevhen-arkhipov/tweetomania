@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import Section from "../../components/Section/Section";
 import Container from "../../components/Container/Container";
+import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import TweetsList from "../../components/TweetsList/TweetsList";
 import TweetsItem from "../../components/TweetsItem/TweetsItem";
 
@@ -25,9 +27,10 @@ const Tweets = () => {
   }, []);
 
   return (
-    <section>
+    <Section>
       <Container>
-        <h1>Tweets</h1>
+        <SectionTitle title="Tweets" />
+        <Link to="/">Back</Link>
         {!error && (
           <TweetsList>
             {tweetsCount.map(({ id, name, tweets, followers, avatar }) => (
@@ -41,9 +44,8 @@ const Tweets = () => {
             ))}
           </TweetsList>
         )}
-        <Link to="/">Back</Link>
       </Container>
-    </section>
+    </Section>
   );
 };
 
