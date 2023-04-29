@@ -1,7 +1,7 @@
-import { StyledSectionTitle } from "./SectionTitle.styled";
+import { TitleWrapper, TitleText } from "./SectionTitle.styled";
 
 const SectionTitle = ({ title }) => {
-  return <StyledSectionTitle>{title}</StyledSectionTitle>;
+  return <TitleWrapper>{title && <TitleText>{title}</TitleText>}</TitleWrapper>;
 };
 
 export default SectionTitle;

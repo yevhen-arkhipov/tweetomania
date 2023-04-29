@@ -8,8 +8,8 @@ const Home = () => {
   return (
     <Section>
       <Container>
-        <SectionTitle title="Home" />
-        <Link to="/tweets">Click</Link>
+        <SectionTitle title="TWEETOMANIA" />
+        <Link to="/tweets">Tweets</Link>
       </Container>
     </Section>
   );

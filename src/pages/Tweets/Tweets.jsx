@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import jump from "jump.js";
 
 import Section from "../../components/Section/Section";
 import Container from "../../components/Container/Container";
@@ -8,23 +9,29 @@ import TweetsList from "../../components/TweetsList/TweetsList";
 import TweetsItem from "../../components/TweetsItem/TweetsItem";
 
 import { getAllTweets } from "../../services/api";
+import ScrollUpButton from "../../components/ScrollUpButton/ScrollUpButton";
 
 const Tweets = () => {
-  const [tweetsCount, setTweetsCount] = useState([]);
+  const [tweets, setTweets] = useState([]);
+  const [tweetsCount, setTweetsCount] = useState(3);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const renderTweets = async () => {
+    const fetchTweets = async () => {
       try {
         const data = await getAllTweets();
-
-        setTweetsCount(data);
+        setTweets(data);
       } catch (error) {
         setError({ error });
       }
     };
-    renderTweets();
+    fetchTweets();
   }, []);
+
+  const handleLoadMore = () => {
+    jump(850);
+    setTweetsCount(tweetsCount + 3);
+  };
 
   return (
     <Section>
@@ -33,17 +40,23 @@ const Tweets = () => {
         <Link to="/">Back</Link>
         {!error && (
           <TweetsList>
-            {tweetsCount.map(({ id, name, tweets, followers, avatar }) => (
-              <TweetsItem
-                key={id}
-                name={name}
-                tweets={tweets}
-                followers={followers}
-                avatar={avatar}
-              />
-            ))}
+            {tweets
+              .slice(0, tweetsCount)
+              .map(({ id, name, tweets, followers, avatar }) => (
+                <TweetsItem
+                  key={id}
+                  name={name}
+                  tweets={tweets}
+                  followers={followers}
+                  avatar={avatar}
+                />
+              ))}
           </TweetsList>
         )}
+        {tweetsCount < tweets.length && (
+          <button onClick={handleLoadMore}>Load more</button>
+        )}
+        <ScrollUpButton />
       </Container>
     </Section>
   );

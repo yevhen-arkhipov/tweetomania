@@ -25,6 +25,10 @@ ol {
   padding: 0;
   list-style: none;
 }
+a,
+button {
+  cursor: pointer;
+}
 `;
 
 export default GlobalStyle;

@@ -2,14 +2,16 @@ import { useState } from "react";
 
 import {
   StylesTweetsItem,
+  NameTextWrapper,
   ImageWrapper,
   Image,
   DescriptionWrapper,
-  NameTextWrapper,
+  Text,
 } from "./TweetsItem.styled";
 
 const TweetsItem = ({ name, tweets, followers, avatar }) => {
   const [isHovering, setIsHovering] = useState(false);
+  const [followersCount, setFollowersCount] = useState(followers);
 
   const handleMouseEnter = () => {
     setIsHovering(true);
@@ -19,10 +21,15 @@ const TweetsItem = ({ name, tweets, followers, avatar }) => {
     setIsHovering(false);
   };
 
+  const handleFollowClick = () => {
+    setFollowersCount(followersCount + (followersCount === followers ? 1 : -1));
+  };
+
   return (
     <StylesTweetsItem
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      hovering={isHovering}
     >
       {isHovering && (
         <NameTextWrapper>
@@ -33,9 +40,12 @@ const TweetsItem = ({ name, tweets, followers, avatar }) => {
         <Image src={avatar} alt={name} />
       </ImageWrapper>
       <DescriptionWrapper>
-        <p>{tweets} TWEETS</p>
-        <p>{followers} FOLLOWERS</p>
+        <Text>{tweets.toLocaleString("en-US")} TWEETS</Text>
+        <Text>{followersCount.toLocaleString("en-US")} FOLLOWERS</Text>
       </DescriptionWrapper>
+      <button onClick={handleFollowClick}>
+        {followersCount === followers ? "Follow" : "Following"}
+      </button>
     </StylesTweetsItem>
   );
 };

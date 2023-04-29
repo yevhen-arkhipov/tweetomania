@@ -1,16 +1,16 @@
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 
+import Loader from "../Loader/Loader";
+
 const Layout = () => {
   return (
     <>
-      <header></header>
       <main>
-        <Suspense>
+        <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
       </main>
-      <footer></footer>
     </>
   );
 };

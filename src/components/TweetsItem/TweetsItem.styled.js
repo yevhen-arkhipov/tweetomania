@@ -23,6 +23,7 @@ export const StylesTweetsItem = styled.li`
 `;
 
 export const ImageWrapper = styled.div`
+  margin-bottom: 26px;
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -40,6 +41,7 @@ export const DescriptionWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 26px;
 `;
 
 export const NameTextWrapper = styled.div`
@@ -52,6 +54,8 @@ export const NameTextWrapper = styled.div`
   align-items: center;
   padding: 6px;
   width: 90px;
+  font-family: "Montserrat";
+  font-style: normal;
   font-weight: 700;
   font-size: 12px;
   line-height: 24px;
@@ -60,4 +64,18 @@ export const NameTextWrapper = styled.div`
   background-color: #fff;
   border-radius: 6px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+`;
+
+export const Text = styled.p`
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: #ebd8ff;
+
+  &:not(:last-of-type) {
+    margin-bottom: 16px;
+  }
 `;
