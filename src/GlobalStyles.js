@@ -27,6 +27,7 @@ ol {
 }
 a,
 button {
+  text-decoration:none;
   cursor: pointer;
 }
 `;

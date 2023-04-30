@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { TbArrowBigUpLinesFilled } from "react-icons/tb";
+
 import { ButtonWrapper, ButtonIconWrapper } from "./ScrollUpButton.styled";
 
 const ScrollUpButton = () => {

@@ -7,11 +7,13 @@ import {
   Image,
   DescriptionWrapper,
   Text,
+  FollowButton,
 } from "./TweetsItem.styled";
 
 const TweetsItem = ({ name, tweets, followers, avatar }) => {
   const [isHovering, setIsHovering] = useState(false);
   const [followersCount, setFollowersCount] = useState(followers);
+  const [isClicked, setIsClicked] = useState(false);
 
   const handleMouseEnter = () => {
     setIsHovering(true);
@@ -22,6 +24,7 @@ const TweetsItem = ({ name, tweets, followers, avatar }) => {
   };
 
   const handleFollowClick = () => {
+    setIsClicked(!isClicked);
     setFollowersCount(followersCount + (followersCount === followers ? 1 : -1));
   };
 
@@ -43,9 +46,9 @@ const TweetsItem = ({ name, tweets, followers, avatar }) => {
         <Text>{tweets.toLocaleString("en-US")} TWEETS</Text>
         <Text>{followersCount.toLocaleString("en-US")} FOLLOWERS</Text>
       </DescriptionWrapper>
-      <button onClick={handleFollowClick}>
+      <FollowButton isClicked={isClicked} onClick={handleFollowClick}>
         {followersCount === followers ? "Follow" : "Following"}
-      </button>
+      </FollowButton>
     </StylesTweetsItem>
   );
 };

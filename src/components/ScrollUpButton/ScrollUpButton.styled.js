@@ -4,7 +4,7 @@ export const ButtonWrapper = styled.div`
   z-index: 1;
   position: fixed;
   bottom: 50px;
-  right: 50px;
+  right: 100px;
   cursor: pointer;
 `;
 
@@ -15,14 +15,13 @@ export const ButtonIconWrapper = styled.div`
   width: 60px;
   height: 60px;
   background-color: #373737;
-  font-size: 36px;
+  font-size: 30px;
   color: #fff;
   opacity: 0.8;
   border-radius: 50%;
-  transition: opacity 0.2s ease-in-out;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  &:hover,
-  &:focus {
+  &:hover {
     opacity: 1;
   }
 `;

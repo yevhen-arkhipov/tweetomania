@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import jump from "jump.js";
 
 import Section from "../../components/Section/Section";
@@ -7,9 +6,16 @@ import Container from "../../components/Container/Container";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import TweetsList from "../../components/TweetsList/TweetsList";
 import TweetsItem from "../../components/TweetsItem/TweetsItem";
+import ScrollUpButton from "../../components/ScrollUpButton/ScrollUpButton";
 
 import { getAllTweets } from "../../services/api";
-import ScrollUpButton from "../../components/ScrollUpButton/ScrollUpButton";
+
+import {
+  BackLink,
+  BackLinkIcon,
+  LoadMoreButtonWrapper,
+  LoadMoreButton,
+} from "./Tweets.styled";
 
 const Tweets = () => {
   const [tweets, setTweets] = useState([]);
@@ -37,7 +43,10 @@ const Tweets = () => {
     <Section>
       <Container>
         <SectionTitle title="Tweets" />
-        <Link to="/">Back</Link>
+        <BackLink to="/">
+          <BackLinkIcon />
+          Back
+        </BackLink>
         {!error && (
           <TweetsList>
             {tweets
@@ -53,9 +62,11 @@ const Tweets = () => {
               ))}
           </TweetsList>
         )}
-        {tweetsCount < tweets.length && (
-          <button onClick={handleLoadMore}>Load more</button>
-        )}
+        <LoadMoreButtonWrapper>
+          {tweetsCount < tweets.length && (
+            <LoadMoreButton onClick={handleLoadMore}>Load more</LoadMoreButton>
+          )}
+        </LoadMoreButtonWrapper>
         <ScrollUpButton />
       </Container>
     </Section>
