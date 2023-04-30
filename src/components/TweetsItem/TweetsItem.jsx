@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import {
   StylesTweetsItem,
@@ -15,6 +15,27 @@ const TweetsItem = ({ name, tweets, followers, avatar }) => {
   const [followersCount, setFollowersCount] = useState(followers);
   const [isClicked, setIsClicked] = useState(false);
 
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      localStorage.setItem(name, JSON.stringify({ isClicked, followersCount }));
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, [isClicked, followersCount, name]);
+
+  useEffect(() => {
+    const savedState = JSON.parse(localStorage.getItem(name));
+
+    if (savedState) {
+      setIsClicked(savedState.isClicked);
+      setFollowersCount(savedState.followersCount);
+    }
+  }, [name]);
+
   const handleMouseEnter = () => {
     setIsHovering(true);
   };
@@ -25,7 +46,7 @@ const TweetsItem = ({ name, tweets, followers, avatar }) => {
 
   const handleFollowClick = () => {
     setIsClicked(!isClicked);
-    setFollowersCount(followersCount + (followersCount === followers ? 1 : -1));
+    setFollowersCount(isClicked ? followersCount - 1 : followersCount + 1);
   };
 
   return (
@@ -47,7 +68,7 @@ const TweetsItem = ({ name, tweets, followers, avatar }) => {
         <Text>{followersCount.toLocaleString("en-US")} FOLLOWERS</Text>
       </DescriptionWrapper>
       <FollowButton isClicked={isClicked} onClick={handleFollowClick}>
-        {followersCount === followers ? "Follow" : "Following"}
+        {isClicked ? "Following" : "Follow"}
       </FollowButton>
     </StylesTweetsItem>
   );
