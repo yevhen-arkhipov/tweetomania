@@ -34,10 +34,10 @@ For developers:
 ### :framed_picture: Examples :
 
 <div>
-  <img src="https://i.imgur.com/iitUwm3.png" title="Screen1" **alt="Screen1" width="600"/>
-  <img src="https://i.imgur.com/nz0FzHZ.png" title="Screen2" **alt="Screen2" width="600"/>
-  <img src="https://i.imgur.com/NzLcZZv.png" title="Screen3" **alt="Screen3" width="600"/>
-  <img src="https://i.imgur.com/DzXMdBk.png" title="Screen4" **alt="Screen4" width="600"/>
+  <img src="https://i.imgur.com/iitUwm3.png" title="Screen1" **alt="Screen1" width="500"/>
+  <img src="https://i.imgur.com/nz0FzHZ.png" title="Screen2" **alt="Screen2" width="500"/>
+  <img src="https://i.imgur.com/NzLcZZv.png" title="Screen3" **alt="Screen3" width="500"/>
+  <img src="https://i.imgur.com/DzXMdBk.png" title="Screen4" **alt="Screen4" width="500"/>
 </div>
 
 <!-- BLOG-POST-LIST:END -->
