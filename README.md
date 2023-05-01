@@ -30,3 +30,6 @@ For developers:
 </div>
 
 <!-- BLOG-POST-LIST:END -->
+
+<h2 align="center">Enjoy! :wink:</h3>
+	
