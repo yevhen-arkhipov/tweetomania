@@ -9,6 +9,7 @@ For users:
 - :jigsaw: Track the number of their tweets.
 - :jigsaw: Follow their profiles.
 - :jigsaw: Save your subscriptions
+- :jigsaw: Sort profile cards using filters: "Show all", "Subscribe" "Subscriptions".
 
 For developers:
 
