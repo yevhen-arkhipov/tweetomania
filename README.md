@@ -5,6 +5,13 @@
 
 For users:
 
+- :jigsaw: Find profiles of your favorite public figures.
+- :jigsaw: Track the number of their tweets.
+- :jigsaw: Follow their profiles.
+- :jigsaw: Save your subscriptions
+
+For developers:
+
 - :telescope: Find profiles of your favorite public figures.
 - :telescope: Track the number of their tweets.
 - :telescope: Follow their profiles.
