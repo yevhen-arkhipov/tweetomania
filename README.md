@@ -12,10 +12,9 @@ For users:
 
 For developers:
 
-- :telescope: Find profiles of your favorite public figures.
-- :telescope: Track the number of their tweets.
-- :telescope: Follow their profiles.
-- :telescope: Save your subscriptions
+- :telescope: Two routes are available: "/" and "/tweets".
+- :telescope: The following commands are available: "npm start", "npm run build" and "npm run delpoy".
+- :telescope: To get data, use the "GET" method.
 
 ---
 
