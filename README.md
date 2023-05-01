@@ -44,5 +44,5 @@ For developers:
 
 <h2 align="center">Enjoy! :wink:</h3>
 
-
+---
 
