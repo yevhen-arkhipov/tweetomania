@@ -3,6 +3,13 @@
 <!-- BLOG-POST-LIST:START -->
 ### :speech_balloon: About the application :
 
+For users:
+
+- :telescope: Find profiles of your favorite public figures.
+- :telescope: Track the number of their tweets.
+- :telescope: Follow their profiles.
+- :telescope: Save your subscriptions
+
 ---
 
 ### :hammer_and_wrench: Languages and Tools :
