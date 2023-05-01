@@ -22,22 +22,28 @@ import {
   FollowButton,
 } from './TweetsItem.styled';
 
-const TweetsItem = ({ name, tweets, followers, avatar }) => {
+const TweetsItem = ({ name, tweets, followers, avatar, filter }) => {
   const [isHovering, setIsHovering] = useState(false);
   const [followersCount, setFollowersCount] = useState(followers);
   const [isClicked, setIsClicked] = useState(false);
 
   useEffect(() => {
-    const handleBeforeUnload = () => {
-      localStorage.setItem(name, JSON.stringify({ isClicked, followersCount }));
+    const handleStorageChange = event => {
+      if (event.key === name) {
+        const savedState = JSON.parse(event.newValue);
+        if (savedState) {
+          setIsClicked(savedState.isClicked);
+          setFollowersCount(savedState.followersCount);
+        }
+      }
     };
 
-    window.addEventListener('beforeunload', handleBeforeUnload);
+    window.addEventListener('storage', handleStorageChange);
 
     return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
+      window.removeEventListener('storage', handleStorageChange);
     };
-  }, [isClicked, followersCount, name]);
+  }, [name]);
 
   useEffect(() => {
     const savedState = JSON.parse(localStorage.getItem(name));
@@ -58,6 +64,32 @@ const TweetsItem = ({ name, tweets, followers, avatar }) => {
   const handleFollowClick = () => {
     setIsClicked(!isClicked);
     setFollowersCount(isClicked ? followersCount - 1 : followersCount + 1);
+    updateLocalStorage();
+  };
+
+  const updateLocalStorage = () => {
+    localStorage.setItem(
+      name,
+      JSON.stringify({ isClicked: !isClicked, followersCount })
+    );
+
+    const savedFilter = localStorage.getItem('filter');
+
+    if (savedFilter && savedFilter !== filter) {
+      const savedData = JSON.parse(localStorage.getItem(savedFilter)) || [];
+      const updatedData = savedData.filter(item => item.name !== name);
+      localStorage.setItem(savedFilter, JSON.stringify(updatedData));
+    }
+
+    const currentFilter = localStorage.getItem('filter');
+    const isFollow = currentFilter === 'follow' && !isClicked;
+    const isFollowing = currentFilter === 'following' && isClicked;
+
+    if (isFollow || isFollowing) {
+      const savedData = JSON.parse(localStorage.getItem(currentFilter)) || [];
+      const updatedData = savedData.filter(item => item.name !== name);
+      localStorage.setItem(currentFilter, JSON.stringify(updatedData));
+    }
   };
 
   return (

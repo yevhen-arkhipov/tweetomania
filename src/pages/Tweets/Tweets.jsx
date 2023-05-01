@@ -37,7 +37,7 @@ const Tweets = () => {
     fetchTweets();
   }, []);
 
-  const filteredTweets = tweets.filter(({ name }) => {
+  let filteredTweets = tweets.filter(({ name }) => {
     const savedState = JSON.parse(localStorage.getItem(name)) || {};
     if (filterValue === 'following') {
       return savedState.isClicked;
