@@ -1,26 +1,28 @@
-import { useEffect, useState } from "react";
-import jump from "jump.js";
+import { useEffect, useState } from 'react';
+import jump from 'jump.js';
 
-import Section from "../../components/Section/Section";
-import Container from "../../components/Container/Container";
-import SectionTitle from "../../components/SectionTitle/SectionTitle";
-import TweetsList from "../../components/TweetsList/TweetsList";
-import TweetsItem from "../../components/TweetsItem/TweetsItem";
-import ScrollUpButton from "../../components/ScrollUpButton/ScrollUpButton";
+import Section from '../../components/Section/Section';
+import Container from '../../components/Container/Container';
+import SectionTitle from '../../components/SectionTitle/SectionTitle';
+import Filter from '../../components/Filter/Filter';
+import TweetsList from '../../components/TweetsList/TweetsList';
+import TweetsItem from '../../components/TweetsItem/TweetsItem';
+import ScrollUpButton from '../../components/ScrollUpButton/ScrollUpButton';
 
-import { getAllTweets } from "../../services/api";
+import { getAllTweets } from '../../services/api';
 
 import {
-  MenuLinkWrapper,
+  MenuWrapper,
   MenuLink,
   MenuLinkIcon,
   LoadMoreButtonWrapper,
   LoadMoreButton,
-} from "./Tweets.styled";
+} from './Tweets.styled';
 
 const Tweets = () => {
   const [tweets, setTweets] = useState([]);
   const [tweetsCount, setTweetsCount] = useState(3);
+  const [filterValue, setFilterValue] = useState('show all');
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -29,11 +31,26 @@ const Tweets = () => {
         const data = await getAllTweets();
         setTweets(data);
       } catch (error) {
-        setError({ error });
+        setError(error);
       }
     };
     fetchTweets();
   }, []);
+
+  const filteredTweets = tweets.filter(({ name }) => {
+    const savedState = JSON.parse(localStorage.getItem(name)) || {};
+    if (filterValue === 'following') {
+      return savedState.isClicked;
+    } else if (filterValue === 'follow') {
+      return !savedState.isClicked;
+    } else {
+      return savedState;
+    }
+  });
+
+  const handleFilterChange = event => {
+    setFilterValue(event.target.value);
+  };
 
   const handleLoadMore = () => {
     jump(770);
@@ -44,18 +61,16 @@ const Tweets = () => {
     <Section>
       <Container>
         <SectionTitle title="Tweets" />
-        <MenuLinkWrapper>
+        <MenuWrapper>
           <MenuLink to="/">
             <MenuLinkIcon />
             Back
           </MenuLink>
-          <MenuLink to="/">Show all</MenuLink>
-          <MenuLink to="/">Follow</MenuLink>
-          <MenuLink to="/">Followings</MenuLink>
-        </MenuLinkWrapper>
+          <Filter value={filterValue} onChange={handleFilterChange} />
+        </MenuWrapper>
         {!error && (
           <TweetsList>
-            {tweets
+            {filteredTweets
               .slice(0, tweetsCount)
               .map(({ id, name, tweets, followers, avatar }) => (
                 <TweetsItem
@@ -69,7 +84,7 @@ const Tweets = () => {
           </TweetsList>
         )}
         <LoadMoreButtonWrapper>
-          {tweetsCount < tweets.length && (
+          {tweetsCount < filteredTweets.length && (
             <LoadMoreButton onClick={handleLoadMore}>Load more</LoadMoreButton>
           )}
         </LoadMoreButtonWrapper>

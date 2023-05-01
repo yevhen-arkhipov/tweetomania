@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
-import logoImage from "../../images/logo.png";
-import tweetsImage from "../../images/tweets-image.png";
-import imageLine from "../../images/image-line.png";
-import imageEclipse from "../../images/image-eclipse.png";
+import logoImage from '../../images/logo.png';
+import tweetsImage from '../../images/tweets-image.png';
+import imageLine from '../../images/image-line.png';
+import imageEclipse from '../../images/image-eclipse.png';
 
 import {
   StylesTweetsItem,
@@ -20,7 +20,7 @@ import {
   DescriptionWrapper,
   Text,
   FollowButton,
-} from "./TweetsItem.styled";
+} from './TweetsItem.styled';
 
 const TweetsItem = ({ name, tweets, followers, avatar }) => {
   const [isHovering, setIsHovering] = useState(false);
@@ -32,16 +32,15 @@ const TweetsItem = ({ name, tweets, followers, avatar }) => {
       localStorage.setItem(name, JSON.stringify({ isClicked, followersCount }));
     };
 
-    window.addEventListener("beforeunload", handleBeforeUnload);
+    window.addEventListener('beforeunload', handleBeforeUnload);
 
     return () => {
-      window.removeEventListener("beforeunload", handleBeforeUnload);
+      window.removeEventListener('beforeunload', handleBeforeUnload);
     };
   }, [isClicked, followersCount, name]);
 
   useEffect(() => {
     const savedState = JSON.parse(localStorage.getItem(name));
-
     if (savedState) {
       setIsClicked(savedState.isClicked);
       setFollowersCount(savedState.followersCount);
@@ -85,11 +84,11 @@ const TweetsItem = ({ name, tweets, followers, avatar }) => {
         </ImageWrapper>
         <ImageLine src={imageLine} alt={imageLine} />
         <DescriptionWrapper>
-          <Text>{tweets.toLocaleString("en-US")} TWEETS</Text>
-          <Text>{followersCount.toLocaleString("en-US")} FOLLOWERS</Text>
+          <Text>{tweets.toLocaleString('en-US')} TWEETS</Text>
+          <Text>{followersCount.toLocaleString('en-US')} FOLLOWERS</Text>
         </DescriptionWrapper>
         <FollowButton isClicked={isClicked} onClick={handleFollowClick}>
-          {isClicked ? "Following" : "Follow"}
+          {isClicked ? 'Following' : 'Follow'}
         </FollowButton>
       </TweetsContentWrapper>
     </StylesTweetsItem>

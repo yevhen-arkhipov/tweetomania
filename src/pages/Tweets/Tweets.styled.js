@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { TiArrowBack } from "react-icons/ti";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { TiArrowBack } from 'react-icons/ti';
 
-export const MenuLinkWrapper = styled.div`
+export const MenuWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,9 +13,10 @@ export const MenuLink = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 5px;
   padding: 5px 10px;
   background-color: #ffffff;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -27,10 +28,6 @@ export const MenuLink = styled(Link)`
   border-radius: 10.3108px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:not(:last-of-type) {
-    margin-right: 5px;
-  }
 
   &:hover {
     background-color: #5cd3a8;
@@ -57,7 +54,7 @@ export const LoadMoreButton = styled.button`
   width: 196px;
   height: 50px;
   background-color: #ffffff;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 600;
   font-size: 18px;

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StylesTweetsItem = styled.li`
   position: relative;
@@ -113,7 +113,7 @@ export const NameTextWrapper = styled.div`
   align-items: center;
   padding: 6px;
   width: 90px;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 700;
   font-size: 12px;
@@ -126,7 +126,7 @@ export const NameTextWrapper = styled.div`
 `;
 
 export const Text = styled.p`
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -145,8 +145,8 @@ export const FollowButton = styled.button`
   align-items: center;
   width: 196px;
   height: 50px;
-  background-color: ${(props) => (props.isClicked ? "#5CD3A8" : "#EBD8FF")};
-  font-family: "Montserrat";
+  background-color: ${props => (props.isClicked ? '#5CD3A8' : '#EBD8FF')};
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -159,6 +159,6 @@ export const FollowButton = styled.button`
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    background-color: ${(props) => (props.isClicked ? "#EBD8FF" : "#5CD3A8")};
+    background-color: ${props => (props.isClicked ? '#EBD8FF' : '#5CD3A8')};
   }
 `;
