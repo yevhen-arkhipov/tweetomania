@@ -1,10 +1,22 @@
 import { useState, useEffect } from "react";
 
+import logoImage from "../../images/logo.png";
+import tweetsImage from "../../images/tweets-image.png";
+import imageLine from "../../images/image-line.png";
+import imageEclipse from "../../images/image-eclipse.png";
+
 import {
   StylesTweetsItem,
+  LogoImageWrapper,
+  LogoImage,
+  TweetsImageWrapper,
+  TweetsImage,
   NameTextWrapper,
+  TweetsContentWrapper,
+  ImageLine,
   ImageWrapper,
   Image,
+  ImageEclipse,
   DescriptionWrapper,
   Text,
   FollowButton,
@@ -55,21 +67,31 @@ const TweetsItem = ({ name, tweets, followers, avatar }) => {
       onMouseLeave={handleMouseLeave}
       hovering={isHovering}
     >
+      <LogoImageWrapper>
+        <LogoImage src={logoImage} alt="logoImage" />
+      </LogoImageWrapper>
+      <TweetsImageWrapper>
+        <TweetsImage src={tweetsImage} alt="tweetsImage" />
+      </TweetsImageWrapper>
       {isHovering && (
         <NameTextWrapper>
           <p>{name}</p>
         </NameTextWrapper>
       )}
-      <ImageWrapper>
-        <Image src={avatar} alt={name} />
-      </ImageWrapper>
-      <DescriptionWrapper>
-        <Text>{tweets.toLocaleString("en-US")} TWEETS</Text>
-        <Text>{followersCount.toLocaleString("en-US")} FOLLOWERS</Text>
-      </DescriptionWrapper>
-      <FollowButton isClicked={isClicked} onClick={handleFollowClick}>
-        {isClicked ? "Following" : "Follow"}
-      </FollowButton>
+      <TweetsContentWrapper>
+        <ImageWrapper>
+          <Image src={avatar} alt={name} />
+          <ImageEclipse src={imageEclipse} alt={imageEclipse} />
+        </ImageWrapper>
+        <ImageLine src={imageLine} alt={imageLine} />
+        <DescriptionWrapper>
+          <Text>{tweets.toLocaleString("en-US")} TWEETS</Text>
+          <Text>{followersCount.toLocaleString("en-US")} FOLLOWERS</Text>
+        </DescriptionWrapper>
+        <FollowButton isClicked={isClicked} onClick={handleFollowClick}>
+          {isClicked ? "Following" : "Follow"}
+        </FollowButton>
+      </TweetsContentWrapper>
     </StylesTweetsItem>
   );
 };

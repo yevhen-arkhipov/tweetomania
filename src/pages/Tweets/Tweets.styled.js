@@ -2,13 +2,18 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { TiArrowBack } from "react-icons/ti";
 
-export const BackLink = styled(Link)`
+export const MenuLinkWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 50px;
-  width: 92px;
-  height: 40px;
+`;
+
+export const MenuLink = styled(Link)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
   background-color: #ffffff;
   font-family: "Montserrat";
   font-style: normal;
@@ -23,13 +28,17 @@ export const BackLink = styled(Link)`
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
+  &:not(:last-of-type) {
+    margin-right: 5px;
+  }
+
   &:hover {
     background-color: #5cd3a8;
     border: 1px solid #5cd3a8;
   }
 `;
 
-export const BackLinkIcon = styled(TiArrowBack)`
+export const MenuLinkIcon = styled(TiArrowBack)`
   margin-right: 5px;
   font-size: 20px;
 `;

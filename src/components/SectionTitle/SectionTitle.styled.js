@@ -4,7 +4,7 @@ export const TitleWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 `;
 
 export const TitleText = styled.h1`

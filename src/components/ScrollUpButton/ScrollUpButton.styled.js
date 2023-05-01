@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const ButtonWrapper = styled.div`
   z-index: 1;
   position: fixed;
-  bottom: 50px;
-  right: 100px;
+  bottom: 100px;
+  right: 300px;
   cursor: pointer;
 `;
 

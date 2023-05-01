@@ -11,8 +11,9 @@ import ScrollUpButton from "../../components/ScrollUpButton/ScrollUpButton";
 import { getAllTweets } from "../../services/api";
 
 import {
-  BackLink,
-  BackLinkIcon,
+  MenuLinkWrapper,
+  MenuLink,
+  MenuLinkIcon,
   LoadMoreButtonWrapper,
   LoadMoreButton,
 } from "./Tweets.styled";
@@ -35,7 +36,7 @@ const Tweets = () => {
   }, []);
 
   const handleLoadMore = () => {
-    jump(850);
+    jump(770);
     setTweetsCount(tweetsCount + 3);
   };
 
@@ -43,10 +44,15 @@ const Tweets = () => {
     <Section>
       <Container>
         <SectionTitle title="Tweets" />
-        <BackLink to="/">
-          <BackLinkIcon />
-          Back
-        </BackLink>
+        <MenuLinkWrapper>
+          <MenuLink to="/">
+            <MenuLinkIcon />
+            Back
+          </MenuLink>
+          <MenuLink to="/">Show all</MenuLink>
+          <MenuLink to="/">Follow</MenuLink>
+          <MenuLink to="/">Followings</MenuLink>
+        </MenuLinkWrapper>
         {!error && (
           <TweetsList>
             {tweets

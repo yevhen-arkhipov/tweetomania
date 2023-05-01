@@ -4,7 +4,6 @@ export const StylesTweetsItem = styled.li`
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 380px;
   height: 460px;
@@ -22,7 +21,55 @@ export const StylesTweetsItem = styled.li`
   }
 `;
 
+export const LogoImageWrapper = styled.div`
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 76px;
+  height: 22px;
+  }
+`;
+
+export const LogoImage = styled.img`
+  width: 100%;
+  height: 100%;
+  }
+`;
+
+export const TweetsImageWrapper = styled.div`
+  position: absolute;
+  top: 28px;
+  left: 36px;
+  width: 308px;
+  height: 168px;
+  }
+`;
+
+export const TweetsImage = styled.img`
+  width: 100%;
+  height: 100%;
+  }
+`;
+export const TweetsContentWrapper = styled.div`
+  position: absolute;
+  bottom: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const ImageLine = styled.img`
+  position: absolute;
+  bottom: 194px;
+`;
+
 export const ImageWrapper = styled.div`
+  z-index: 1;
+  position: absolute;
+  bottom: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 26px;
   width: 80px;
   height: 80px;
@@ -30,10 +77,22 @@ export const ImageWrapper = styled.div`
 `;
 
 export const Image = styled.img`
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(
+    114.99deg,
+    rgb(71, 28, 169) -0.99%,
+    rgb(87, 54, 163) 54.28%,
+    rgb(75, 42, 153) 78.99%
+  );
+  border-radius: 50%;
+`;
+
+export const ImageEclipse = styled.img`
+  position: absolute;
+  right: 0;
   width: 100%;
   height: 100%;
-  background-color: #ffffff;
-  border-radius: 50%;
 `;
 
 export const DescriptionWrapper = styled.div`
@@ -46,7 +105,7 @@ export const DescriptionWrapper = styled.div`
 
 export const NameTextWrapper = styled.div`
   position: absolute;
-  bottom: 200px;
+  bottom: 190px;
   right: 26px;
   display: flex;
   flex-direction: column;
