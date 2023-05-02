@@ -5,6 +5,8 @@ import tweetsImage from '../../images/tweets-image.png';
 import imageLine from '../../images/image-line.png';
 import imageEclipse from '../../images/image-eclipse.png';
 
+import updateLocalStorage from '../../utils/updateLocalStorage';
+
 import {
   StylesTweetsItem,
   LogoImageWrapper,
@@ -64,33 +66,33 @@ const TweetsItem = ({ name, tweets, followers, avatar, filter }) => {
   const handleFollowClick = () => {
     setIsClicked(!isClicked);
     setFollowersCount(isClicked ? followersCount - 1 : followersCount + 1);
-    updateLocalStorage();
+    updateLocalStorage({ isClicked, followersCount, name, filter });
   };
 
-  const updateLocalStorage = () => {
-    localStorage.setItem(
-      name,
-      JSON.stringify({ isClicked: !isClicked, followersCount })
-    );
+  // const updateLocalStorage = () => {
+  //   localStorage.setItem(
+  //     name,
+  //     JSON.stringify({ isClicked: !isClicked, followersCount })
+  //   );
 
-    const savedFilter = localStorage.getItem('filter');
+  //   const savedFilter = localStorage.getItem('filter');
 
-    if (savedFilter && savedFilter !== filter) {
-      const savedData = JSON.parse(localStorage.getItem(savedFilter)) || [];
-      const updatedData = savedData.filter(item => item.name !== name);
-      localStorage.setItem(savedFilter, JSON.stringify(updatedData));
-    }
+  //   if (savedFilter && savedFilter !== filter) {
+  //     const savedData = JSON.parse(localStorage.getItem(savedFilter)) || [];
+  //     const updatedData = savedData.filter(item => item.name !== name);
+  //     localStorage.setItem(savedFilter, JSON.stringify(updatedData));
+  //   }
 
-    const currentFilter = localStorage.getItem('filter');
-    const isFollow = currentFilter === 'follow' && !isClicked;
-    const isFollowing = currentFilter === 'following' && isClicked;
+  //   const currentFilter = localStorage.getItem('filter');
+  //   const isFollow = currentFilter === 'follow' && !isClicked;
+  //   const isFollowing = currentFilter === 'following' && isClicked;
 
-    if (isFollow || isFollowing) {
-      const savedData = JSON.parse(localStorage.getItem(currentFilter)) || [];
-      const updatedData = savedData.filter(item => item.name !== name);
-      localStorage.setItem(currentFilter, JSON.stringify(updatedData));
-    }
-  };
+  //   if (isFollow || isFollowing) {
+  //     const savedData = JSON.parse(localStorage.getItem(currentFilter)) || [];
+  //     const updatedData = savedData.filter(item => item.name !== name);
+  //     localStorage.setItem(currentFilter, JSON.stringify(updatedData));
+  //   }
+  // };
 
   return (
     <StylesTweetsItem
