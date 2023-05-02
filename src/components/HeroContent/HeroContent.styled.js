@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import heroImage from "../../images/hero-image.jpg";
+import heroImage from '../../images/hero-image.jpg';
 
 export const HeroContentWrapper = styled.div`
   position: relative;
@@ -8,10 +8,24 @@ export const HeroContentWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 640px;
+  margin-top: 150px;
+  height: 224px;
   background-image: url('${heroImage}');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: contain;
+  }
+
+  @media screen and (min-width: 375px) {
+    height: 224px;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-top: 0;
+    height: 540px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: 640px;
   }
 `;

@@ -4,17 +4,26 @@ import { TiArrowBack } from 'react-icons/ti';
 
 export const MenuWrapper = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
 `;
 
 export const MenuLink = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 5px;
+  margin-bottom: 10px;
   padding: 5px 10px;
+  width: 89px;
+  height: 34px;
   background-color: #ffffff;
   font-family: 'Montserrat';
   font-style: normal;
@@ -28,6 +37,11 @@ export const MenuLink = styled(Link)`
   border-radius: 10.3108px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (min-width: 768px) {
+    margin-right: 5px;
+    margin-bottom: 0;
+  }
 
   &:hover {
     background-color: #5cd3a8;

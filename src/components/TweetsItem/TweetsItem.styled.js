@@ -5,7 +5,7 @@ export const StylesTweetsItem = styled.li`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 380px;
+  width: 276px;
   height: 460px;
   background: linear-gradient(
     114.99deg,
@@ -16,8 +16,17 @@ export const StylesTweetsItem = styled.li`
   box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
   border-radius: 20px;
 
+  @media screen and (min-width: 768px) {
+    width: 380px;
+    height: 460px;
+  }
+
   &:not(:last-of-type) {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+
+    &:not(:last-of-type) {
+      margin-bottom: 50px;
+    }
   }
 `;
 
@@ -39,9 +48,15 @@ export const LogoImage = styled.img`
 export const TweetsImageWrapper = styled.div`
   position: absolute;
   top: 28px;
-  left: 36px;
-  width: 308px;
-  height: 168px;
+  left: 7px;
+  width: 258px;
+  height: 156px;
+  
+  @media screen and (min-width: 768px) {
+    left: 36px;
+    width: 308px;
+    height: 168px;
+  }
   }
 `;
 
@@ -61,6 +76,11 @@ export const TweetsContentWrapper = styled.div`
 export const ImageLine = styled.img`
   position: absolute;
   bottom: 194px;
+  width: 276px;
+
+  @media screen and (min-width: 768px) {
+    width: 380px;
+  }
 `;
 
 export const ImageWrapper = styled.div`
@@ -106,7 +126,7 @@ export const DescriptionWrapper = styled.div`
 export const NameTextWrapper = styled.div`
   position: absolute;
   bottom: 190px;
-  right: 26px;
+  right: 8px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -123,16 +143,25 @@ export const NameTextWrapper = styled.div`
   background-color: #fff;
   border-radius: 6px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+
+  @media screen and (min-width: 768px) {
+    right: 26px;
+  }
 `;
 
 export const Text = styled.p`
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 18px;
   text-transform: uppercase;
   color: #ebd8ff;
+
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+    line-height: 24px;
+  }
 
   &:not(:last-of-type) {
     margin-bottom: 16px;

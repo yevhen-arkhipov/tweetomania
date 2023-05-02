@@ -1,11 +1,11 @@
-import { StyledFilter } from './Filter.styled';
+import { StyledFilter, StyledFilterOption } from './Filter.styled';
 
 const Filter = ({ value, onChange }) => {
   return (
     <StyledFilter value={value} onChange={onChange}>
-      <option value="show all">Show all</option>
-      <option value="follow">Follow</option>
-      <option value="following">Following</option>
+      <StyledFilterOption value="show all">Show all</StyledFilterOption>
+      <StyledFilterOption value="follow">Follow</StyledFilterOption>
+      <StyledFilterOption value="following">Following</StyledFilterOption>
     </StyledFilter>
   );
 };
