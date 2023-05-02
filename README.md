@@ -29,7 +29,20 @@ For developers:
   <img src="https://i.imgur.com/eG6i80j.png" title="StyledComponents" **alt="StyledComponents" width="40" height="40"/>
 </div>
 
+---
+
+### :framed_picture: Examples :
+
+<div>
+  <img src="https://i.imgur.com/iitUwm3.png" title="Screen1" **alt="Screen1" width="500"/>
+  <img src="https://i.imgur.com/nz0FzHZ.png" title="Screen2" **alt="Screen2" width="500"/>
+  <img src="https://i.imgur.com/NzLcZZv.png" title="Screen3" **alt="Screen3" width="500"/>
+  <img src="https://i.imgur.com/DzXMdBk.png" title="Screen4" **alt="Screen4" width="500"/>
+</div>
+
 <!-- BLOG-POST-LIST:END -->
 
 <h2 align="center">Enjoy! :wink:</h3>
-	
+
+---
+
